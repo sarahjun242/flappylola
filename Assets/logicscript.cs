@@ -40,11 +40,8 @@ public class logicscript : MonoBehaviour
         }
         else // Subsequent loads (after "Play Again")
         {
-            // If it's not the first time, we assume "Play Again" was pressed,
-            // so we directly start the game or prepare it to start
+
             gameStartscreen.SetActive(false);
-            // The bird's Start() will now handle its initial state based on logic.gameStarted.
-            // We call StartGame() directly to ensure all game elements are reset and active.
             StartGame();
         }
     }
@@ -74,16 +71,10 @@ public class logicscript : MonoBehaviour
         {
             bird.ResetBird();
         }
-        // You would also need to reset your pipe spawner and background scroller here
-        // (assuming you have those scripts and they are stopped/started based on gameStarted)
-        // Example:
-        // FindObjectOfType<PipeSpawner>().ResetPipes();
-        // FindObjectOfType<BackgroundScroller>().StartScrolling();
     }
 
     public void restartGame()
     {
-        // This is correct, as SceneManager.LoadScene will re-trigger Start() methods
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
