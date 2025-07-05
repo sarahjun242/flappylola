@@ -17,8 +17,7 @@ public class birdscript : MonoBehaviour
 
     void Start()
     {
-        // Check if logic is assigned and game has started (meaning it's not the initial frozen state)
-        // This ensures FreezeBird() only happens on the *very first* load.
+        // This ensures FreezeBird() only happens on the very first load.
         // For subsequent loads (Play Again), logic.gameStarted will be true or handled by ResetBird.
         if (logic == null || !logic.gameStarted)
         {
@@ -26,8 +25,6 @@ public class birdscript : MonoBehaviour
         }
         else
         {
-            // If the game has already started (i.e., after a "Play Again"),
-            // we should directly go into the "game started" state for the bird.
             ResetBird();
         }
     }
